@@ -22,8 +22,8 @@ def on_connect( client, userdata, flags, rc):
     print ("Connected with Code :" +str(rc))
     # Subscribe Topic from here
     # Aprovechando que se conectó, hacemos un subscribe a los tópicos
-    #client.subscribe("fjhp6619mxIn")
-    client.subscribe("fjhp6619mxIn")
+    #client.subscribe("equipo5entrada")
+    client.subscribe("equipo5entrada")
 
 # Callback Function on Receiving the Subscribed Topic/Message
 # Cuando nos llega un mensaje a los tópicos suscritos, se ejecuta
@@ -69,14 +69,14 @@ def envia_dispositivo():
     print('Salida Json:', salidaJson)
     client.publish("tc1004b/profe/dispositivos",salidaJson)
     #time.sleep(4)
-    client.publish("fjhp6619mxIn",salidaJson)
+    client.publish("equipo5entrada",salidaJson)
 
 # Envía un mensaje de prueba para que se procese en la llegada de mensajes
 def mensaje_debug():
     salida = '{"dispositivo":"Debug1","tipo":"Debug_Tipo","dato":5}'
     input('Mensaje de prueba: ' + salida)
     client.publish("tc1004b/profe/dispositivos",salida)
-    client.publish("fjhp6619mxIn",salida)
+    client.publish("equipo5entrada",salida)
 
 #def consulta():
 #    mycursor.execute('DESCRIBE PyLog2')
