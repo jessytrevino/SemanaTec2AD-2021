@@ -36,6 +36,39 @@ def on_message( client, userdata, msg):
     # print the message received from the subscribed topic
     topic = msg.topic
     m_decode = str(msg.payload.decode("utf-8","ignore"))
+    try:
+        m_in = json.loads(m_decode)
+    except:
+        print(m_decode)
+        return 0
+# Checar si el tópico es el que deseamos
+# Para Debug: iprimimos lo que generamos
+# Aquí es donde podemos almacenar en la BD la información
+# que envía el dispositivo
+    print()
+    print('------------Llegada de mensaje-----------')
+    print('Tópico: ', topic)
+    print(type(m_decode),' ' , m_decode)
+    print(type(m_in), ' ' , m_in)
+    print('Dispositivo: ', type(m_in['dispositivo']) ,' ',m_in['dispositivo'])
+    print('       Tipo: ', type(m_in['tipo'])        ,' ',m_in['tipo'])
+    print('       Dato: ', type(m_in['dato'])        ,' ',m_in['dato'])
+    #print ("Recibido--->", str(msg.payload) )
+    dispositivo = m_in['dispositivo']
+    tipo = m_in['tipo']
+    dato = m_in['dato']
+ #   sqls = f'''INSERT INTO PyLog2 (dispositivo, tipo, dato) VALUES ("{dispositivo}","{tipo}",{dato})'''
+ #   print(sqls)
+ #   mycursor.execute(sqls)
+ #   db.commit()
+    
+# En esta función pedimos datos al usuario para saber a qué
+# dispositivo vamos a enviar el mensaje y lo formatemos a json
+
+def on_message2( client, userdata, msg):
+    # print the message received from the subscribed topic
+    topic = msg.topic
+    m_decode = str(msg.payload.decode("utf-8","ignore"))
     m_in = json.loads(m_decode)
 # Checar si el tópico es el que deseamos
 # Para Debug: iprimimos lo que generamos
