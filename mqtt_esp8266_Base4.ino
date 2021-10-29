@@ -182,7 +182,7 @@ void proceso4() {
   //Serial.println(msg);
   //client.publish(topico_salida, msg);
   client.publish(topico_entrada, msg);   
-  delay (2000)
+  delay (2000);
 }
   
 void proceso5() {
