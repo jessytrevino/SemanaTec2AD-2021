@@ -23,14 +23,14 @@ NTPClient timeClient(ntpUDP, NTP_ADDRESS, NTP_OFFSET, NTP_INTERVAL);
 const char* ssid = "Galaxy Note20cf62";
 const char* password = "muyg5147";
 const char* mqtt_server = "broker.mqtt-dashboard.com";
-const char* topico_salida = "fjhp6619mxOut";
-const char* topico_entrada = "fjhp6619mxIn";
+const char* topico_salida = "equipo5salida";
+const char* topico_entrada = "equipo5entrada";
 
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 unsigned long lastMsg = 0;
-#define MSG_BUFFER_SIZE	(80)
+#define MSG_BUFFER_SIZE  (80)
 char msg[MSG_BUFFER_SIZE];
 int value = 0;
 
@@ -181,7 +181,7 @@ void proceso4() {
   //Serial.print("Publish message: ");
   //Serial.println(msg);
   //client.publish(topico_salida, msg);
-  client.publish(topico_entrada, msg);   
+  //client.publish(topico_entrada, msg);   
 }
   
 void proceso5() {
