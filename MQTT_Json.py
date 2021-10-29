@@ -64,7 +64,7 @@ def envia_dispositivo():
     dispositivo = input('Nombre del dispositivo:')
     sensor_actuador = input('Sensor del dispositivo:')
     accion = int(input('Acción:'))
-    dicSalida = {'dispositivo':dispositivo,'sens_act':sensor_actuador,'accion':accion}
+    dicSalida = {'dispositivo':dispositivo,'tipo':sensor_actuador,'dato':accion}
     salidaJson = json.dumps(dicSalida)
     print('Salida Json:', salidaJson)
     client.publish("tc1004b/profe/dispositivos",salidaJson)
