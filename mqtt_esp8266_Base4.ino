@@ -181,7 +181,8 @@ void proceso4() {
   //Serial.print("Publish message: ");
   //Serial.println(msg);
   //client.publish(topico_salida, msg);
-  //client.publish(topico_entrada, msg);   
+  client.publish(topico_entrada, msg);   
+  delay (2000)
 }
   
 void proceso5() {
@@ -203,10 +204,10 @@ void loop() {
   client.loop();
 
   unsigned long now = millis();
-  if (now - ciclo1 > 5000) {ciclo1 = now;proceso1();}
+  if (now - ciclo1 > 5000) {ciclo1 = now;proceso1();} //temperatura
   if (now - ciclo2 > 6300) {ciclo2 = now;proceso2();}
   if (now - ciclo3 > 2000) {ciclo3 = now;proceso3();}
-  if (now - ciclo4 > 4300) {ciclo4 = now;proceso4();}
+  if (now - ciclo4 > 7500) {ciclo4 = now;proceso4();} //humedad
   if (now - ciclo5 > 10000) {ciclo5 = now;proceso5();}
 
 }
